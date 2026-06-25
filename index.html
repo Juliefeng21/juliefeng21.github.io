@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Li Julie Feng</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f8fafc;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 18px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    nav .logo {
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    nav a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #374151;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 140px 8% 80px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+      background:
+        radial-gradient(circle at top left, #dbeafe 0, transparent 35%),
+        radial-gradient(circle at bottom right, #e0e7ff 0, transparent 35%),
+        #ffffff;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 86px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      margin-bottom: 24px;
+    }
+
+    h1 span {
+      color: #2563eb;
+    }
+
+    .subtitle {
+      font-size: 24px;
+      color: #374151;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .description {
+      max-width: 680px;
+      font-size: 20px;
+      color: #4b5563;
+      margin-bottom: 30px;
+    }
+
+    .roles {
+      color: #6b7280;
+      font-size: 16px;
+      margin-bottom: 34px;
+    }
+
+    .buttons a {
+      display: inline-block;
+      margin-right: 14px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: #111827;
+      border: 1px solid #d1d5db;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 231, 235, 0.9);
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: 0 25px 80px rgba(15, 23, 42, 0.1);
+    }
+
+    .profile-circle {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #93c5fd);
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+      font-weight: 800;
+    }
+
+    .profile-card h3 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-card p {
+      color: #4b5563;
+      text-align: center;
+    }
+
+    section {
+      padding: 90px 8%;
+    }
+
+    h2 {
+      font-size: 40px;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: #4b5563;
+      font-size: 18px;
+      margin-bottom: 36px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 12px 40px rgba(15, 23, 42, 0.04);
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.08);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: #4b5563;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 16px 8px 0 0;
+      padding: 6px 12px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .contact-box {
+      background: #111827;
+      color: white;
+      border-radius: 32px;
+      padding: 48px;
+    }
+
+    .contact-box p {
+      color: #d1d5db;
+      margin-bottom: 10px;
+    }
+
+    footer {
+      padding: 36px 8%;
+      text-align: center;
+      color: #6b7280;
+      background: white;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        padding: 16px 6%;
+      }
+
+      nav a {
+        margin-left: 12px;
+        font-size: 14px;
+      }
+
+      section,
+      .hero {
+        padding-left: 6%;
+        padding-right: 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="logo">Li Julie Feng</div>
+    <div>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#research">Research</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">AI Product & Healthcare Innovation</div>
+
+        <h1>Li Julie <span>Feng</span></h1>
+
+        <p class="subtitle">Human-Centered AI & Digital Health</p>
+
+        <p class="description">
+          Designing AI solutions that connect research, healthcare, and people.
+        </p>
+
+        <p class="roles">
+          Nursing Student • Research Assistant • Community Interpreter
+        </p>
+
+        <div class="buttons">
+          <a class="primary" href="#projects">View Projects</a>
+          <a class="secondary" href="#contact">Contact Me</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-circle">JF</div>
+        <h3>Healthcare × AI × Research</h3>
+        <p>
+          Building thoughtful, accessible, and human-centered technology for real-world health impact.
+        </p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="section-intro">
+        I am interested in healthcare innovation, AI-enabled solutions, research translation,
+        and human-centered technology. My goal is to make complex health and research information
+        easier to understand, communicate, and apply.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Healthcare Perspective</h3>
+          <p>
+            Bringing a nursing and patient-centered lens to digital health, clinical communication,
+            and community-facing technology.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Research Translation</h3>
+          <p>
+            Turning literature, evidence, and complex concepts into clear insights that support
+            decision-making and communication.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Human-Centered AI</h3>
+          <p>
+            Exploring how AI tools can be designed responsibly, accessibly, and meaningfully
+            for healthcare and research contexts.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="section-intro">
+        Selected work across AI product thinking, healthcare communication, research synthesis,
+        and digital design.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>AI Healthcare Portfolio</h3>
+          <p>
+            A personal website and portfolio system designed to communicate healthcare, AI,
+            and research experience clearly.
+          </p>
+          <span class="tag">AI Product</span>
+          <span class="tag">Web Design</span>
+        </div>
+
+        <div class="card">
+          <h3>Research Synthesis</h3>
+          <p>
+            Literature review and evidence-mapping work focused on translating complex findings
+            into accessible narratives.
+          </p>
+          <span class="tag">Research</span>
+          <span class="tag">Healthcare</span>
+        </div>
+
+        <div class="card">
+          <h3>Community Interpretation</h3>
+          <p>
+            Supporting communication across language, culture, and health-related contexts through
+            clear and compassionate interpretation.
+          </p>
+          <span class="tag">Communication</span>
+          <span class="tag">Community</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Research & Interests</h2>
+      <p class="section-intro">
+        My interests sit at the intersection of healthcare, digital health, AI, patient communication,
+        and research translation.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Digital Health</h3>
+          <p>AI-supported tools for healthcare education, communication, and decision support.</p>
+        </div>
+
+        <div class="card">
+          <h3>Clinical Communication</h3>
+          <p>Making complex health information clearer for patients, families, and communities.</p>
+        </div>
+
+        <div class="card">
+          <h3>Evidence-Based Innovation</h3>
+          <p>Connecting research evidence with practical, human-centered healthcare solutions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-box">
+        <h2>Contact</h2>
+        <p>Email: add your email here</p>
+        <p>LinkedIn: add your LinkedIn here</p>
+        <p>GitHub: github.com/Juliefeng21</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Li Julie Feng. Built with GitHub Pages.
+  </footer>
+</body>
+</html>
